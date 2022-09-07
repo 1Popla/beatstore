@@ -1,0 +1,39 @@
+<div id="<%= dom_id beat %>">
+  <p>
+    <strong>Title:</strong>
+    <%= beat.Title %>
+  </p>
+
+  <p>
+    <strong>Bpm:</strong>
+    <%= beat.bpm %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong>
+    <%= beat.genre %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= beat.description %>
+  </p>
+
+  <p>
+    <strong>Scale:</strong>
+    <%= beat.scale %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= beat.price %>
+  </p>
+<br />
+
+<strong>files:</strong>
+  <% if beat.image.attached? %>
+    <%= image_tag beat.image, width:"150px"%>
+
+  
+    <% end %>
+</div>

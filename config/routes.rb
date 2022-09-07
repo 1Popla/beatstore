@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :beats
   devise_for :users, controllers: {
     registrations: 'registrations'
   }
@@ -7,6 +8,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root "store#index"
+  root "beats#index"
 
 end

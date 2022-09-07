@@ -1,0 +1,91 @@
+<div class="columns">
+  <div class="column is-8 is-centered">
+
+
+    <%= simple_form_for(@beat) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+       <div class="columns">
+
+          <div class="field column is-9">
+            <div class="control">
+              <%= f.input :Title, required: true, input_html: { class: "input"}, wrapper: false, label_html: { class:"label" } %>
+            </div>
+          </div>
+
+          <div class="field column">
+            <div class="control">
+              <%= f.input :price, required: true, input_html: { class:"input", maxlength: 7  }, wrapper: false, label_html: { class:"label" } %>
+            </div>
+          </div>
+            
+</div>
+       
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :description, required: true, input_html: { class:"textarea" }, wrapper: false, label_html: { class:"label" } %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">BPM</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :bpm, collection: Beat::BPM, prompt: "Select BPM" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-tag"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Genre</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :genre, collection: Beat::GENRE, prompt: "Select genre" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+       
+
+           <div class="field">
+          <div class="control">
+    
+            <label class="label">Add Image and MP3</label>
+              <div class="file">
+              <label class="file-label">
+                <%= f.file_field :image %>  
+              </label>
+              </div>
+            </div>
+          </div>
+
+         
+
+       </div>
+
+        <hr/>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= f.button :submit, class: 'button is-warning' %>
+            <%= link_to 'Cancel', beats_path, class:'button is-light' %>
+          </div>
+        </div>
+
+      <% end %>
+  </div>
+</div>

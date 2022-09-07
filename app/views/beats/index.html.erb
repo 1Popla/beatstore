@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Beats</h1>
+
+<div id="beats">
+  <% @beats.each do |beat| %>
+    <%= render beat %>
+    <p>
+      <%= link_to "Show this beat", beat %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New beat", new_beat_path %>
