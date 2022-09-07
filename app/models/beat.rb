@@ -1,6 +1,7 @@
 class Beat < ApplicationRecord
 
-    has_one_attached :song_file
+    
+    has_one_attached :audio
 
     has_one_attached :image
     
@@ -13,6 +14,7 @@ class Beat < ApplicationRecord
     validates :Title, length: { maximum: 100, too_long: "%{count} character is the maximum allowed." }
 
     validates :price, numericality: { only_integer: true }, length: { maximum: 9 }
+
 
     GENRE = %w{ HipHop EDM Trap Rap Oldschool Hyperpop Rock Lo-Fi Drill Grime Pluggnb }
     BPM = %w{ 50

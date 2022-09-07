@@ -30,10 +30,17 @@
   </p>
 <br />
 
-<strong>files:</strong>
+<strong>Image:</strong>
   <% if beat.image.attached? %>
-    <%= image_tag beat.image, width:"150px"%>
+ 
+      <%= image_tag beat.image, width:"150px"%>
+  <% end %>
 
-  
-    <% end %>
+  <strong>Track:</strong>
+    <% if beat.audio.attached? %>    
+          <audio controls>
+          <source src="<% beat.audio %>" type="audio/mpeg"/>
+          </audio>
+          <button><%= link_to "Download Beat", beat.audio, class: "html5" %></button>
+      <% end %>
 </div>
