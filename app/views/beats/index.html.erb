@@ -1,14 +1,70 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Beats</h1>
 
-<div id="beats">
+
+<p style="color: green">
+
+
+<h5>BEAT STORE</h5>
+
+BEATS:
+<%= @beats.count %>
+ 
+
+
+  
+  <tbody>
+
   <% @beats.each do |beat| %>
-    <%= render beat %>
-    <p>
-      <%= link_to "Show this beat", beat %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New beat", new_beat_path %>
+    <tr>
+    </td>
+    </tr>
+  
+  <% end %>
+</tbody>
+</table>
+
+<br>
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Play Audio</th>
+      <th scope="col">Title</th>
+      <th scope="col">BPM</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Scale</th>
+      <th scope="col">Price ($)</th>
+      <th scope="col">BUY</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <% @beats.each do |beat| %>
+  
+    <tr>
+    <td><%=image_tag beat.image, width: "100px" if beat.image.attached? %></td>
+    <td><%= audio_tag(url_for(beat.audio), class:"message-audio", controls: "") if beat.audio.attached? %></td>
+    <td><%= link_to beat.Title + ' ', beat %></td>
+    <td><%=beat.bpm%></td>
+    <td><%=beat.genre%></td>
+    <td><%=beat.scale%></td>
+    <td><%=beat.price%></td>
+    <td><%=beat.scale%></td>
+    <td><%= link_to "Click here to PURCHASE", beat%></td>
+   
+    
+      
+      
+    </tr>
+    <tr>
+   <% end %>
+    </tr>
+  </tbody>
+
+</table>
+<%== pagy_nav(@pagy) %>
+
+

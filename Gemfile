@@ -66,7 +66,7 @@ end
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'simple_form'
 gem "bulma-rails", "~> 0.9.3"
-
+ gem 'pagy', '~> 5.10'
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

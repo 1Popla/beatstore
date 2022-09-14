@@ -4,7 +4,8 @@ class BeatsController < ApplicationController
 
   # GET /beats or /beats.json
   def index
-    @beats = Beat.all.order("created_at desc")
+    @pagy, @beats = pagy(Beat.all.order("created_at desc"), items: 5)
+    
   end
 
   # GET /beats/1 or /beats/1.json
