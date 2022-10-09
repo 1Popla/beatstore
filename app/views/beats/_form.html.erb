@@ -84,6 +84,12 @@
             </div>
           </div>
 
+        <div>
+          <%= f.label :category, style: "display: block" %>
+          <%= f.select :category_id, options_for_select(@categories.collect { |cat| [cat.name, cat.id]}) %>
+        </div>
+
+      
 
           <div class="field">
           <div class="control">

@@ -37,6 +37,7 @@ BEATS:
       <th scope="col">Genre</th>
       <th scope="col">Scale</th>
       <th scope="col">Price ($)</th>
+      <th scope="col">Category</th>
       <th scope="col">BUY</th>
 
     </tr>
@@ -52,8 +53,8 @@ BEATS:
     <td><%=beat.genre%></td>
     <td><%=beat.scale%></td>
     <td><%=beat.price%></td>
-    <td><%=beat.scale%></td>
-    <td><%= link_to "Click here to PURCHASE", beat%></td>
+    <td><%=link_to beat.category.name, beat.category%></td>
+    <td><%=link_to "Click here to PURCHASE", beat%></td>
    
     
       

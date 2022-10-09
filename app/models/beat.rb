@@ -2,6 +2,7 @@ class Beat < ApplicationRecord
 
     has_many :orderables
     has_many :carts, through: :orderables
+    belongs_to :category
 
 
     has_one_attached :audio
@@ -17,6 +18,8 @@ class Beat < ApplicationRecord
     validates :Title, length: { maximum: 100, too_long: "%{count} character is the maximum allowed." }
 
     validates :price, numericality: { only_integer: true }, length: { maximum: 9 }
+
+    validates :category_id, presence: true
 
     
     GENRE = %w{ HipHop EDM Trap Rap Oldschool Hyperpop Rock Lo-Fi Drill Grime Pluggnb }

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'registrations'
   }
+  resources :categories
   get 'store/index'
   get 'cart', to: 'cart#show'
   post 'cart/add'

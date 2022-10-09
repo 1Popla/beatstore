@@ -1,10 +1,12 @@
 class BeatsController < ApplicationController
   before_action :set_beat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index]
+  before_action :set_categories
 
   # GET /beats or /beats.json
   def index
     @pagy, @beats = pagy(Beat.all.order("created_at desc"), items: 5)
+    
     
   end
 
@@ -72,6 +74,10 @@ class BeatsController < ApplicationController
     private
     # Only allow a list of trusted parameters through.
     def beat_params
-      params.require(:beat).permit(:Title, :bpm, :genre, :description, :scale, :price, :title, :image, :audio)
+      params.require(:beat).permit(:Title, :bpm, :genre, :description, :scale, :price, :title, :image, :audio, :category_id)
+    end
+
+    def set_categories
+      @categories = Category.all.order(:name)
     end
 end
