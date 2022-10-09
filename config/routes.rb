@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     registrations: 'registrations'
   }
   get 'store/index'
+  get 'cart', to: 'cart#show'
+  post 'cart/add'
+  post 'cart/remove'
+  get 'search', to: "beats#search"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

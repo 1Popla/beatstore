@@ -1,4 +1,6 @@
-<div id="<%= dom_id beat %>">
+<% @cart.orderables.each do |orderable| %>
+    <% beat = orderable.beat %>
+<div id="<%= "cart-#{beat.id}" %>">
   <p>
     <strong>Title:</strong>
     <%= beat.Title %>
@@ -28,11 +30,18 @@
     <strong>Price:</strong>
     <%= beat.price %>
   </p>
-  <%= form_with(url: cart_add_path) do |cart| %>
-      <%= cart.hidden_field :id, value: beat.id %>
-      <%= cart.number_field :quantity, value: 1, min: 1, max: 1%>
-      <%= cart.submit "Add To Cart" %>
-  <% end %>
+        <%= form_with(url: cart_add_path) do |cart| %>
+            <%= cart.hidden_field :id, value: beat.id %>
+            <%= cart.number_field :quantity, value: orderable.quantity, min: 0, max: 1 %>
+            <%= cart.submit "Add To Cart" %>
+        <% end %>
+
+        <%= form_with(url: cart_remove_path) do |cart| %>
+            <%= cart.hidden_field :id, value: orderable.id %>
+            <%= cart.submit "X" %>
+        <% end %>
+        <strong>Total:</strong>
+        <%= orderable.total %>
 <br />
 
 <strong>Image:</strong>
@@ -47,3 +56,4 @@
           <button><%= link_to "Download Beat", beat.audio, class: "html5" %></button>
       <% end %>
 </div>
+<% end %>

@@ -8,6 +8,11 @@ class BeatsController < ApplicationController
     
   end
 
+  def search
+    @beats = Beat.where("Title LIKE ?", "%" + params[:q] + "%")
+    
+  end
+
   # GET /beats/1 or /beats/1.json
   def show
   end
