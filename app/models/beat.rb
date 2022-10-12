@@ -11,11 +11,11 @@ class Beat < ApplicationRecord
     
     belongs_to :user, optional: true
 
-    validate :Title, :bpm, :genre, :scale, :price
+    validate :title, :bpm, :genre, :scale, :price
 
     validates :description, length: { maximum: 500, too_long: "%{count} character is the maximum allowed."}
 
-    validates :Title, length: { maximum: 100, too_long: "%{count} character is the maximum allowed." }
+    validates :title, length: { maximum: 100, too_long: "%{count} character is the maximum allowed." }
 
     validates :price, numericality: { only_integer: true }, length: { maximum: 9 }
 

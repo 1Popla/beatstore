@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_153050) do
   end
 
   create_table "beats", force: :cascade do |t|
-    t.string "Title"
+    t.string "title"
     t.integer "bpm"
     t.string "genre"
     t.text "description"

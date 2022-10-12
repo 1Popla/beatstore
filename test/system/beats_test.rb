@@ -14,7 +14,7 @@ class BeatsTest < ApplicationSystemTestCase
     visit beats_url
     click_on "New beat"
 
-    fill_in "Title", with: @beat.Title
+    fill_in "Title", with: @beat.title
     fill_in "Bpm", with: @beat.bpm
     fill_in "Description", with: @beat.description
     fill_in "Genre", with: @beat.genre
@@ -30,7 +30,7 @@ class BeatsTest < ApplicationSystemTestCase
     visit beat_url(@beat)
     click_on "Edit this beat", match: :first
 
-    fill_in "Title", with: @beat.Title
+    fill_in "Title", with: @beat.title
     fill_in "Bpm", with: @beat.bpm
     fill_in "Description", with: @beat.description
     fill_in "Genre", with: @beat.genre

@@ -48,7 +48,7 @@ BEATS:
     <tr>
     <td><%=image_tag beat.image, width: "100px" if beat.image.attached? %></td>
     <td><%= audio_tag(url_for(beat.audio), class:"message-audio", controls: "") if beat.audio.attached? %></td>
-    <td><%= link_to beat.Title + ' ', beat %></td>
+    <td><%= link_to beat.title + ' ', beat %></td>
     <td><%=beat.bpm%></td>
     <td><%=beat.genre%></td>
     <td><%=beat.scale%></td>
