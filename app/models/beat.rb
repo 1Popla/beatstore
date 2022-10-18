@@ -23,7 +23,7 @@ class Beat < ApplicationRecord
 
     
     GENRE = %w{ HipHop EDM Trap Rap Oldschool Hyperpop Rock Lo-Fi Drill Grime Pluggnb }
-    BPM = [(50..200).to_a].flatten
+    BPM = (50..200).to_a
 
     
 def image_as_thumbnail
