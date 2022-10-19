@@ -17,7 +17,7 @@ class BeatsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create beat" do
     assert_difference("Beat.count") do
-      post beats_url, params: { beat: { title: @beat.title, bpm: @beat.bpm, description: @beat.description, genre: @beat.genre, price: @beat.price, scale: @beat.scale } }
+      post beats_url, params: {beat: {title: @beat.title, bpm: @beat.bpm, description: @beat.description, genre: @beat.genre, price: @beat.price, scale: @beat.scale}}
     end
 
     assert_redirected_to beat_url(Beat.last)
@@ -34,7 +34,7 @@ class BeatsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update beat" do
-    patch beat_url(@beat), params: { beat: { title: @beat.title, bpm: @beat.bpm, description: @beat.description, genre: @beat.genre, price: @beat.price, scale: @beat.scale } }
+    patch beat_url(@beat), params: {beat: {title: @beat.title, bpm: @beat.bpm, description: @beat.description, genre: @beat.genre, price: @beat.price, scale: @beat.scale}}
     assert_redirected_to beat_url(@beat)
   end
 

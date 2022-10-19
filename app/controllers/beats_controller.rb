@@ -1,18 +1,15 @@
 class BeatsController < ApplicationController
-  before_action :set_beat, only: %i[ show edit update destroy ]
+  before_action :set_beat, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: [:index]
   before_action :set_categories
 
   # GET /beats or /beats.json
   def index
     @pagy, @beats = pagy(Beat.all.order("created_at desc"), items: 5)
-    
-    
   end
 
   def search
     @beats = Beat.where("Title LIKE ?", "%" + params[:q] + "%")
-    
   end
 
   # GET /beats/1 or /beats/1.json
@@ -66,18 +63,19 @@ class BeatsController < ApplicationController
     end
   end
 
-  
-    # Use callbacks to share common setup or constraints between actions.
-    def set_beat
-      @beat = Beat.find(params[:id])
-    end
-    private
-    # Only allow a list of trusted parameters through.
-    def beat_params
-      params.require(:beat).permit(:title, :bpm, :genre, :description, :scale, :price, :image, :audio, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_beat
+    @beat = Beat.find(params[:id])
+  end
 
-    def set_categories
-      @categories = Category.all.order(:name)
-    end
+  private
+
+  # Only allow a list of trusted parameters through.
+  def beat_params
+    params.require(:beat).permit(:title, :bpm, :genre, :description, :scale, :price, :image, :audio, :category_id)
+  end
+
+  def set_categories
+    @categories = Category.all.order(:name)
+  end
 end
