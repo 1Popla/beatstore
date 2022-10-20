@@ -1,6 +1,7 @@
 class Beat < ApplicationRecord
   has_many :orderables
   has_many :carts, through: :orderables
+  has_many :comments
   belongs_to :category
 
   has_one_attached :audio

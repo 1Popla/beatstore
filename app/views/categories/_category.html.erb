@@ -6,9 +6,11 @@
   </p>
 
     <% category.beats.each do |beat| %>
+    <% if beat.audio.attached? %>
       <p>
          <%= audio_tag(url_for(beat.audio), class:"message-audio", controls: "") %>  | <%= link_to "View Beat", beat %>
       </p>
+    <% end %>
     <% end %>
 
 

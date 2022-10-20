@@ -2,9 +2,25 @@
 
 <%= render @beat %>
 
+
+
 <div>
   <%= link_to "Edit this beat", edit_beat_path(@beat) %> |
   <%= link_to "Back to beats", beats_path %>
 
   <%= button_to "Destroy this beat", @beat, method: :delete %>
 </div>
+
+
+<div class="container">
+  <h2 c;ass="subtitle is-5"><strong><%= @beat.comments.count %> </strong> Comments:</h2>
+  <%= render @beat.comments %>
+    <div class="comment-form">
+    <hr />
+    <h3 class="subtitle is-3">Leave a reply </h3>
+    <%= render "comments/form" %>
+    
+    </div>
+</div>
+
+
