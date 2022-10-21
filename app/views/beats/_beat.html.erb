@@ -1,3 +1,7 @@
+
+<div class="columns">
+  <div class="column is-8 is-centered">
+
 <div id="<%= dom_id beat %>">
   <p>
     <strong>Title:</strong>
@@ -51,4 +55,6 @@
           <%= audio_tag(url_for(beat.audio), class:"message-audio", controls: "") %>
           <button><%= link_to "Download Beat", beat.audio, class: "html5" %></button>
       <% end %>
+</div>
+</div>
 </div>
