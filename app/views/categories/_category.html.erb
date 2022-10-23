@@ -1,0 +1,15 @@
+<div id="<%= dom_id category %>">
+  <p>
+    <strong>Category:</strong>
+    <%= category.name %>
+    
+  </p>
+
+    <% category.beats.each do |beat| %>
+      <p>
+         <%= audio_tag(url_for(beat.audio), class:"message-audio", controls: "") %>  | <%= link_to "View Beat", beat %>
+      </p>
+    <% end %>
+
+
+</div>
